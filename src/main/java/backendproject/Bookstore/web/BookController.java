@@ -1,16 +1,24 @@
 package backendproject.Bookstore.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import backendproject.Bookstore.domain.Book;
+import backendproject.Bookstore.domain.BookRepository;
 
+@Controller
 public class BookController {
-     @RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String greetingForm(Model model) {
-        model.addAttribute("book", new Book());
-		return "greeting";
+
+	@Autowired
+	private BookRepository repository;
+
+	@RequestMapping(value = {"/","bookList" })
+	public String bookList(Model model) {
+        model.addAttribute("books",repository.findAll());
+		return "bookList";
 	}
 
 

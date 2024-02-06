@@ -15,10 +15,10 @@ public class BookController {
 	@Autowired
 	private BookRepository repository;
 
-	@RequestMapping(value = {"/","bookList" })
+	@RequestMapping(value = {"/booklist" })
 	public String bookList(Model model) {
         model.addAttribute("books",repository.findAll());
-		return "bookList";
+		return "booklist";
 	}
 
 

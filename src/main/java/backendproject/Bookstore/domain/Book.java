@@ -1,5 +1,6 @@
 package backendproject.Bookstore.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,17 +13,17 @@ public class Book {
     private Long id;
     private String title;
     private String author;
-    private Integer pubYear;
+    private Integer yearPub;
     private String isbn;
     private double price;
 
     public Book(){}
 
-    public Book(String title, String author, Integer pubYear, String isbn, double price){
+    public Book(String title, String author, Integer yearPub, String isbn, double price){
         super();
         this.title=title;
         this.author=author;
-        this.pubYear=pubYear;
+        this.yearPub=yearPub;
         this.isbn=isbn;
         this.price=price;
     }
@@ -51,12 +52,12 @@ public class Book {
         this.author = author;
     }
 
-    public Integer getYear() {
-        return pubYear;
+    public Integer getYearPub() {
+        return yearPub;
     }
 
-    public void setYear(Integer pubYear) {
-        this.pubYear = pubYear;
+    public void setYearPub(Integer yearPub) {
+        this.yearPub = yearPub;
     }
 
     public String getIsbn() {
@@ -76,6 +77,6 @@ public class Book {
     }
 
     public String toString() {
-		return "Book [id=" + id +", title=" + title +", author=" + author +", year=" + pubYear + ", isbn=" + isbn + ", price=" + price +"]";
+		return "Book [id=" + id +", title=" + title +", author=" + author +", year=" + yearPub + ", isbn=" + isbn + ", price=" + price +"]";
 	}
 }

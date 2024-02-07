@@ -1,5 +1,7 @@
 package backendproject.Bookstore.web;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,4 +42,12 @@ public class BookController {
 		return "redirect:/booklist";
 
 	}
+	 
+	@RequestMapping(value = "/editbook/{id}", method = RequestMethod.GET)
+	public String editBooks(@PathVariable("id") Long bookId, Model model) {
+	Optional<Book> book= repository.findById(bookId);
+	model.addAttribute("book", book );
+	return "editbook";
+	}
+	
 }

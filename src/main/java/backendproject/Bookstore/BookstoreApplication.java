@@ -6,7 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-
+import backendproject.Bookstore.domain.AppUser;
+import backendproject.Bookstore.domain.AppUserRepository;
 import backendproject.Bookstore.domain.Book;
 import backendproject.Bookstore.domain.BookRepository;
 import backendproject.Bookstore.domain.Category;
@@ -20,7 +21,7 @@ public class BookstoreApplication {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
 	@Bean
-	public CommandLineRunner bookDemo(BookRepository brepository, CategoryRepository crepository) {
+	public CommandLineRunner bookDemo(BookRepository brepository, CategoryRepository crepository, AppUserRepository arepository) {
 	return (args) -> {
 		log.info("save a couple of books");
 
@@ -40,7 +41,13 @@ public class BookstoreApplication {
 			
 		}
 
-		
+		// Create users: admin/admin user/user
+		AppUser user1 = new AppUser("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+		AppUser user2 = new AppUser("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+		arepository.save(user1);
+		arepository.save(user2);
+
+
 	};
 
 

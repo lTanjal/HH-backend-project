@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+
 import backendproject.Bookstore.domain.Book;
 import backendproject.Bookstore.domain.BookRepository;
 import backendproject.Bookstore.domain.Category;
@@ -38,6 +39,8 @@ public class BookstoreApplication {
 			log.info(books.toString());
 			
 		}
+
+		
 	};
 
 
